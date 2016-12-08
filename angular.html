@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<script src="jq.js"></script>
+<script src="angular.min.js"></script>
+<script src="myCtrl.js"></script>
+<style type="text/css">
+	body{
+		background-color: black;
+		margin: 0 auto;
+		width: 100%;
+		height: 100%;
+		color: white;
+		font:bold 12px Arial, Helvetica, sans-serif;
+	}
+	main{
+		width: 450px;
+		height: 300px;
+	}
+.container{  
+   width:450px;  
+   height:25px;
+   margin: 0 auto;
+   float: left; 
+   border: 1px solid white;
+ }
+ #per{
+ 	font-size: 20px;
+ 	margin: 0 auto;
+ } </style>
+ <script type="text/javascript">
+$(function(){
+    var i = 0;
+    var w = 0;
+    var l = 30;
+    w = innerWidth-480;
+    var h = 0;
+    h = innerHeight-310;
+    function widthUp(){
+        i=i+0.5;    
+        if(i > w){
+            setTimeout(widthDown,50);
+        }else {
+            $("#main").css("marginLeft",i+"px");
+            setTimeout(widthUp,50);
+        }
+    }
+
+    function widthDown(){
+        i=i-0.5;    
+        if(i < 0) {
+            setTimeout(widthUp,50);
+        }else{
+            $("#main").css("marginLeft",i+"px");
+            setTimeout(widthDown,50);
+        }
+    }
+	function heightUp(){
+        l=l+0.25;    
+        if(l > h){
+            setTimeout(heightDown,50);
+        }else {
+            $("#main").css("marginTop",l+"px");
+            setTimeout(heightUp,50);
+        }
+    }
+
+    function heightDown(){
+        l=l-0.25;    
+        if(l < 30) {
+            setTimeout(heightUp,50);
+        }else{
+            $("#main").css("marginTop",l+"px");
+            setTimeout(heightDown,50);
+        }
+	} 
+	heightUp(); 
+    widthUp();
+});
+     </script>
+<head>
+	<title>项目倒计时</title>
+</head>
+<body ng-app="app" ng-controller="myCtrl">
+<div  id="main" style="width: 450px;height: 250px;">
+	<div style="width: 450px;height: 250px;">
+<ul style="list-style:none;">
+<p style="font-size: 30px;height: 30px;text-align: center;">距离项目结束还有</p>
+<li ng-style="sDays">{{days}}天</li><br />
+<li ng-style="sHours">{{hours}}时</li>
+<li ng-style="sMinutes">{{minutes}}分</li>
+<li ng-style="sSeconds">{{seconds}}秒</li>
+</ul>
+</div>
+<div class="container">
+	<div ng-style="percent"></div><br />
+</div>
+<div style="margin: 0 auto;   text-align:center; float: left; text-align: center;">
+	<p id="per">我们还有{{per}}%的时间</p>	</div>
+</div>
+</body></html>
