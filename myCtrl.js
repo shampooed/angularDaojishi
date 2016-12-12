@@ -214,6 +214,7 @@ if (new Date(NowTime).getDay()!=0) {
       m=Math.floor(ingTime/60);
       s=Math.floor(ingTime);
       l=Math.floor(new Date().getTime()/1000)%60;
+	console.log(l)
       p=(ingTime/1411200*100).toFixed(2)
     // }
     $scope.days = d;
@@ -230,7 +231,7 @@ if (new Date(NowTime).getDay()!=0) {
    'width':p+'%' 
     }
 
-    if(l==32){
+    if(l==0){
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -256,7 +257,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if(l==20){
+    if(l==30){
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -282,7 +283,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==10) {
+    if (l==40) {
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -308,7 +309,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==0) {
+    if (l==50) {
      $scope.sDays = {
      'font-size': '150px',
      'display':'',
@@ -334,7 +335,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-	if (l==30) {
+	if (l==29) {
         document.location = 'https://shampooed.github.io/angularDaojishi/rili.html'
     }
     
