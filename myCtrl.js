@@ -2,12 +2,12 @@ var app = angular.module('app',[]);
 app.controller('myCtrl',function($scope,$interval){
 		$scope.sDays = {
     	'font-size': '150px',
-    	'display':'',
+    	'display':'none',
         'text-align':'center',
         'margin':'0 auto'
     	};
     	$scope.sHours = {
-    	'display': 'none',
+    	'display': '',
     	'font-size': '100px',
         'text-align':'center',
         'margin':'0 auto'
