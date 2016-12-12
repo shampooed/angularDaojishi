@@ -213,7 +213,7 @@ if (new Date(NowTime).getDay()!=0) {
       h=Math.floor(ingTime/60/60);
       m=Math.floor(ingTime/60);
       s=Math.floor(ingTime);
-      l=ingTime%60;
+      l=Math.floor(new Date().getTime()/1000)%60;
       p=(ingTime/1411200*100).toFixed(2)
     // }
     $scope.days = d;
