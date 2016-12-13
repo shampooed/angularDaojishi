@@ -64,12 +64,12 @@
   }
   document.write('</table>');
   function tiao(){
-  var hehe = Math.floor(new Date().getTime()/1000)%60;
-    if (hehe==28) {
+  var l = Math.floor(new Date().getTime()/1000)%60;
+    if (l==0) {
         document.location = 'https://shampooed.github.io/angularDaojishi/angular.html'
     }
     setTimeout(tiao,1000);
-    console.log(hehe)
+    console.log(l)
   }
   tiao();
  </script>
