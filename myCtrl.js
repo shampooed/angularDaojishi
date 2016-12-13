@@ -2,12 +2,12 @@ var app = angular.module('app',[]);
 app.controller('myCtrl',function($scope,$interval){
 		$scope.sDays = {
     	'font-size': '150px',
-    	'display':'none',
+    	'display':'',
         'text-align':'center',
         'margin':'0 auto'
     	};
     	$scope.sHours = {
-    	'display': '',
+    	'display': 'none',
     	'font-size': '100px',
         'text-align':'center',
         'margin':'0 auto'
@@ -190,6 +190,7 @@ if (new Date(NowTime).getDay()!=0) {
     var m=0;
     var s=0;
     var p=0;
+    var l=0;
     var ingDay;    //今天还剩多少秒
     var ingTime;    //一共还有多少秒
     if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>30600000 && 
@@ -234,6 +235,32 @@ if (new Date(NowTime).getDay()!=0) {
     if(l==0){
      $scope.sDays = {
      'font-size': '150px',
+     'display':'',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+     $scope.sHours = {
+     'display': 'none',
+     'font-size': '100px',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+     $scope.sMinutes = {
+         'display': 'none',
+         'font-size': '100px',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+     $scope.sSeconds = {
+         'display': 'none',
+         'font-size': '80px',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+    }
+    if(l==20){
+     $scope.sDays = {
+     'font-size': '150px',
      'display':'none',
         'text-align':'center',
         'margin':'0 auto'
@@ -257,7 +284,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if(l==30){
+    if (l==30) {
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -287,8 +314,8 @@ if (new Date(NowTime).getDay()!=0) {
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
-        'text-align':'center',
-        'margin':'0 auto'
+     'text-align':'center',
+     'margin':'0 auto'
      }
      $scope.sHours = {
      'display': 'none',
@@ -309,35 +336,9 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==50) {
-     $scope.sDays = {
-     'font-size': '150px',
-     'display':'',
-     'text-align':'center',
-     'margin':'0 auto'
-     }
-     $scope.sHours = {
-     'display': 'none',
-     'font-size': '100px',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
-     $scope.sMinutes = {
-         'display': 'none',
-         'font-size': '100px',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
-     $scope.sSeconds = {
-         'display': 'none',
-         'font-size': '80px',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
+	if (l==49) {
+        document.location = 'https://shampooed.github.io/angularDaojishi/rili.html'
     }
-// 	if (l==18) {
-//         document.location = 'https://shampooed.github.io/angularDaojishi/rili.html'
-//     }
     
     },1000);
 
