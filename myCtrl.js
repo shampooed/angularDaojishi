@@ -4,7 +4,7 @@ app.controller('myCtrl',function($scope,$interval){
     	'font-size': '150px',
     	'display':'',
         'text-align':'center',
-        'margin':'0 auto'
+        'margin':'0 auto',
     	};
     	$scope.sHours = {
     	'display': 'none',
@@ -191,15 +191,21 @@ if (new Date(NowTime).getDay()!=0) {
     var s=0;
     var p=0;
     var l=0;
+    var hehe=0;
     var ingDay;    //今天还剩多少秒
     var ingTime;    //一共还有多少秒
     if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>30600000 && 
         new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<45000000) {
-        ingDay = new Date().getTime()-new Date(NowTime+' 08:30:00').getTime()
+        ingDay = new Date().getTime()-new Date(NowTime+' 08:30:00').getTime();
+        hehe=1;
     }
-    if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>48600000 && 
+    else if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>48600000 && 
         new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<63000000) {
-        ingDay = new Date().getTime()-new Date(NowTime+' 09:30:00').getTime()
+        ingDay = new Date().getTime()-new Date(NowTime+' 09:30:00').getTime();
+        hehe=2;
+    }
+    else{
+        hehe=3;
     }
     ingDay = Math.floor(28800-ingDay/1000);
     ingTime = Math.floor((wDay.length-edDay-1)*28800+ingDay)
@@ -210,12 +216,13 @@ if (new Date(NowTime).getDay()!=0) {
     //  p=0;
     // }
     // if(t>=0){
+        if (hehe!=3) {
       d=wDay.length-edDay;
       h=Math.floor(ingTime/60/60);
       m=Math.floor(ingTime/60);
       s=Math.floor(ingTime);
       l=Math.floor(new Date().getTime()/1000)%60;
-	console.log(l)
+      console.log(l);
       p=(ingTime/1411200*100).toFixed(2)
     // }
     $scope.days = d;
@@ -232,33 +239,7 @@ if (new Date(NowTime).getDay()!=0) {
    'width':p+'%' 
     }
 
-    if(l==0){
-     $scope.sDays = {
-     'font-size': '150px',
-     'display':'',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
-     $scope.sHours = {
-     'display': 'none',
-     'font-size': '100px',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
-     $scope.sMinutes = {
-         'display': 'none',
-         'font-size': '100px',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
-     $scope.sSeconds = {
-         'display': 'none',
-         'font-size': '80px',
-        'text-align':'center',
-        'margin':'0 auto'
-     }
-    }
-    if(l==20){
+    if(l==40){
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -284,7 +265,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==30) {
+    if(l==20){
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -310,10 +291,36 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==40) {
+    if (l==10) {
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+     $scope.sHours = {
+     'display': 'none',
+     'font-size': '100px',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+     $scope.sMinutes = {
+         'display': 'none',
+         'font-size': '100px',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+     $scope.sSeconds = {
+         'display': '',
+         'font-size': '80px',
+        'text-align':'center',
+        'margin':'0 auto'
+     }
+    }
+    if (l==0) {
+     $scope.sDays = {
+     'font-size': '150px',
+     'display':'',
      'text-align':'center',
      'margin':'0 auto'
      }
@@ -330,17 +337,21 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
      $scope.sSeconds = {
-         'display': '',
+         'display': 'none',
          'font-size': '80px',
         'text-align':'center',
         'margin':'0 auto'
      }
     }
-	if (l==49) {
+    if (l==30) {
         document.location = 'https://shampooed.github.io/angularDaojishi/rili.html'
     }
-    
+        }
+        if (hehe==3) {
+            document.location = 'https://shampooed.github.io/angularDaojishi/noon.html'
+        }
     },1000);
 
 }
 });
+
