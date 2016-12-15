@@ -32,7 +32,8 @@ var NowTime = new Date().format();
         ingDay = new Date().getTime()-new Date(NowTime+' 08:30:00').getTime();
         hehe=1;
     }
-	else if (45000000<new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<48600000) {
+	else if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>45000000 &&
+		 new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<48600000) {
         ingDay = new Date().getTime()-new Date(NowTime+' 08:30:00').getTime();
         hehe=3;
     }
