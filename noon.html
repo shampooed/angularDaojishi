@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>午休时间</title>
+</head>
+<style type="text/css">
+	body{
+		background-color: black;
+		margin: 0 auto;
+		padding: 0;
+		border:0;
+		width: 100%;
+		height: 100%;
+		color: white;
+		font:bold 12px Arial, Helvetica, sans-serif;		
+	}
+</style>
+<script src="jq.js"></script>
+<script type="text/javascript">
+var hehe=0;	
+Date.prototype.format=function (){
+    var s='';
+    s+=this.getFullYear()+'-';          // 获取年份。
+    s+=(this.getMonth()+1)+"-";         // 获取月份。
+    s+= this.getDate();                 // 获取日。
+    return(s);                          // 返回日期。
+};
+var NowTime = new Date().format();
+	function haha(){
+	if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>30600000 && 
+        new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<45000000) {
+        ingDay = new Date().getTime()-new Date(NowTime+' 08:30:00').getTime();
+        hehe=1;
+    }
+	else if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<30600000 && 
+        new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>45000000) {
+        ingDay = new Date().getTime()-new Date(NowTime+' 08:30:00').getTime();
+        hehe=3;
+    }
+    else if (new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()>48600000 && 
+        new Date().getTime()-new Date(NowTime+' 00:00:00').getTime()<63000000) {
+        ingDay = new Date().getTime()-new Date(NowTime+' 09:30:00').getTime();
+        hehe=2;
+    }
+    else{
+        hehe=4;
+    }
+    console.log(hehe)
+    if (hehe==1 ||hehe==2) {
+    	document.location='file:///F:/ruanjian/STUDY/learnyounode/angular/daojishi1/angular%E5%80%92%E8%AE%A1%E6%97%B6/angular.html'
+    }
+    setTimeout(haha,1000);
+	}
+	haha();
+    $(function(){
+    var i = 0;
+    var w = 0;
+    var l = 30;
+    w = innerWidth-410;
+    var h = 0;
+    h = innerHeight-100;
+    // $('body').css('width',w+'px');
+    // $('body').css('height',h+'px')
+    function widthUp(){
+        i=i+0.5;    
+        if(i > w){
+            setTimeout(widthDown,50);
+        }else {
+            $("#main").css("marginLeft",i+"px");
+            setTimeout(widthUp,50);
+        }
+    }
+
+    function widthDown(){
+        i=i-0.5;    
+        if(i < 0) {
+            setTimeout(widthUp,50);
+        }else{
+            $("#main").css("marginLeft",i+"px");
+            setTimeout(widthDown,50);
+        }
+    }
+	function heightUp(){
+        l=l+0.25;    
+        if(l > h){
+            setTimeout(heightDown,50);
+        }else {
+            $("#main").css("marginTop",l+"px");
+            setTimeout(heightUp,50);
+        }
+    }
+    function heightDown(){
+        l=l-0.25;    
+        if(l < 30) {
+            setTimeout(heightUp,50);
+        }else{
+            $("#main").css("marginTop",l+"px");
+            setTimeout(heightDown,50);
+        }
+	} 
+	heightUp(); 
+    widthUp();
+    if (hehe==3) {
+    		$('#main p').html('午休时间！')
+    	}
+    if (hehe==4) {
+    		$('#main p').html('下班时间！')
+    	}
+});
+</script>
+<body>
+<div id="main" style="width: 410px;height: 100px;">
+	<p style="font-size: 80px;margin-top: 0px">午休时间！</p>
+</div>
+</body>
+</html>
