@@ -239,7 +239,7 @@ if (new Date(NowTime).getDay()!=0) {
    'width':p+'%' 
     }
 
-    if(l==40){
+    if(l==10){
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
@@ -291,7 +291,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==10) {
+    if (l==30) {
      $scope.sDays = {
      'font-size': '150px',
      'display':'none',
