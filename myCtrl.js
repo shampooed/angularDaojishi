@@ -343,7 +343,7 @@ if (new Date(NowTime).getDay()!=0) {
         'margin':'0 auto'
      }
     }
-    if (l==30) {
+    if (l==40) {
         document.location = 'https://shampooed.github.io/angularDaojishi/rili.html'
     }
         }
